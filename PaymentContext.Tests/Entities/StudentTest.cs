@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PaymentContext.Domain.Entities;
 
-namespace PaymentContext.Tests;
+namespace PaymentContext.Tests.Entities;
 
 [TestClass]
 public class StudentTest

@@ -18,6 +18,6 @@ public class BoletoPayment : Payment
         BoletoNumber = boletoNumber;
     }
 
-    public string BarCode { get; private set; }
-    public string BoletoNumber { get; private set; }
+    public string BarCode { get; }
+    public string BoletoNumber { get; }
 }

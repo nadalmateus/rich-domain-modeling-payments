@@ -16,6 +16,5 @@ public class PayPalPayment : Payment
         TransactionCode = transactionCode;
     }
 
-    public string TransactionCode { get; private set; }
+    public string TransactionCode { get; }
 }
-
