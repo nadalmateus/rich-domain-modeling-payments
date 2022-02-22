@@ -1,23 +1,23 @@
+using PaymentContext.Domain.ValueObjects;
+using PaymentContext.Shared.Entities;
+
 namespace PaymentContext.Domain.Entities;
 
-public class Student
+public class Student : Entity
 {
     private readonly IList<Subscription> _subscriptions;
 
-    public Student(string firstName, string lastName, string docummnet, string email)
+    public Student(Name name, Email email)
     {
-        FirstName = firstName;
-        LastName = lastName;
-        Docummnet = docummnet;
+        Name = name;
         Email = email;
         _subscriptions = new List<Subscription>();
     }
 
-    public string FirstName { get; }
-    public string LastName { get; }
-    public string Docummnet { get; }
-    public string Email { get; }
-    public string Adress { get; private set; }
+    public Name Name { get; set; }
+    public Document Document { get; }
+    public Email Email { get; }
+    public Address Address { get; private set; }
     public IReadOnlyCollection<Subscription> Subscriptions => _subscriptions.ToArray();
 
 

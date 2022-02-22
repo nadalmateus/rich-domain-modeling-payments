@@ -1,9 +1,18 @@
+using PaymentContext.Domain.ValueObjects;
+
 namespace PaymentContext.Domain.Entities;
 
 public abstract class Payment
 {
-    protected Payment(DateTime paidDate, DateTime expireDate, decimal total, decimal totalPaid, string document,
-        string payer, string adress, string email)
+    public Payment(
+        DateTime paidDate,
+        DateTime expireDate,
+        decimal total,
+        decimal totalPaid,
+        Document document,
+        string payer,
+        Address address,
+        Email email)
     {
         Number = Guid.NewGuid().ToString().Replace("_", "").Substring(0, 10).ToUpper();
         PaidDate = paidDate;
@@ -12,7 +21,7 @@ public abstract class Payment
         TotalPaid = totalPaid;
         Document = document;
         Payer = payer;
-        Adress = adress;
+        Address = address;
         Email = email;
     }
 
@@ -21,8 +30,8 @@ public abstract class Payment
     public DateTime ExpireDate { get; }
     public decimal Total { get; }
     public decimal TotalPaid { get; }
-    public string Document { get; }
+    public Document Document { get; }
     public string Payer { get; }
-    public string Adress { get; }
-    public string Email { get; }
+    public Address Address { get; }
+    public Email Email { get; }
 }
