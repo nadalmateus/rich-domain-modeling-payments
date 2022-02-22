@@ -7,11 +7,14 @@ public class Student : Entity
 {
     private readonly IList<Subscription> _subscriptions;
 
-    public Student(Name name, Email email)
+    public Student(Name name, Document document, Email email)
     {
         Name = name;
+        Document = document;
         Email = email;
         _subscriptions = new List<Subscription>();
+
+        AddNotifications(name, document, email);
     }
 
     public Name Name { get; set; }
