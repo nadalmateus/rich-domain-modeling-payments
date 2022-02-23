@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+using Flunt.Validations;
 using PaymentContext.Shared.ValueObject;
 
 namespace PaymentContext.Domain.ValueObjects;
@@ -9,10 +11,10 @@ public class Name : ValueObject
         FirstName = firstName;
         LastName = lastName;
 
-        if (string.IsNullOrEmpty(FirstName))
-            AddNotification("Name.FirstName", "Nome Invalido");
+
     }
 
+    [Required]
     public string FirstName { get; }
     public string LastName { get; }
 }
