@@ -1,17 +1,18 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace PaymentContext.Tests.Entities;
-
-[TestClass]
-public class StudentTest
+namespace PaymentContext.Tests.Entities
 {
-    [TestMethod]
-    public void TestMethod1()
+    [TestClass]
+    public class StudentTest
     {
-        // var name = new Name("Mateus", "Nadal");
-        // foreach (var not in name.Notifications)
-        // {
-        //     not.Message;
-        // }
+        [TestMethod]
+        public void TestMethod1()
+        {
+            // var name = new Name("Mateus", "Nadal");
+            // foreach (var not in name.Notifications)
+            // {
+            //     not.Message;
+            // }
+        }
     }
 }

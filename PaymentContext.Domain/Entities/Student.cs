@@ -1,33 +1,36 @@
 using PaymentContext.Domain.ValueObjects;
 using PaymentContext.Shared.Entities;
 
-namespace PaymentContext.Domain.Entities;
-
-public class Student : Entity
+namespace PaymentContext.Domain.Entities
 {
-    private readonly IList<Subscription> _subscriptions;
-
-    public Student(Name name, Document document, Email email)
+    public class Student : Entity
     {
-        Name = name;
-        Document = document;
-        Email = email;
-        _subscriptions = new List<Subscription>();
+        private readonly IList<Subscription> _subscriptions;
 
-        AddNotifications(name, document, email);
-    }
+        public Student(Name name, Document document, Email email)
+        {
+            Name = name;
+            Document = document;
+            Email = email;
+            _subscriptions = new List<Subscription>();
 
-    public Name Name { get; set; }
-    public Document Document { get; }
-    public Email Email { get; }
-    public Address Address { get; private set; }
-    public IReadOnlyCollection<Subscription> Subscriptions => _subscriptions.ToArray();
+            AddNotifications(name, document, email);
+        }
 
+        public Name Name { get; set; }
+        public Document Document { get; }
+        public Email Email { get; }
+        public Address Address { get; private set; }
+        public IReadOnlyCollection<Subscription> Subscriptions => _subscriptions.ToArray();
 
-    public void AddSubscription(Subscription subscription)
-    {
-        foreach (var sub in Subscriptions) sub.Inactivate();
+        public void AddSubscription(Subscription subscription)
+        {
+            foreach (Subscription sub in Subscriptions)
+            {
+                sub.Inactivate();
+            }
 
-        _subscriptions.Add(subscription);
+            _subscriptions.Add(subscription);
+        }
     }
 }
